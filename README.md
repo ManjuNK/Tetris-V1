@@ -59,7 +59,7 @@ https://archive.eksworkshop.com/intermediate/290_argocd/install/
             // Replace the image name in the deployment.yaml file
             sh "sed -i 's|image: .*|image: $NEW_IMAGE_NAME|' deployment.yml"
 
-            // Git commands to stage, commit, and push the changes
+            // Git commands to stage, commit, and push the changes to github
             sh 'git add deployment.yml'
             sh "git commit -m 'Update deployment image to $NEW_IMAGE_NAME'"
             sh "git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main"
